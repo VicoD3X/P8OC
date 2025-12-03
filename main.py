@@ -41,10 +41,12 @@ def decode_base64_image(image_b64: str) -> np.ndarray:
 
 
 def preprocess(image_rgb: np.ndarray) -> np.ndarray:
-    """Resize + normalisation pour ton modèle U-Net."""
-    img = cv2.resize(image_rgb, (256, 256))  # ⚠️ adapte si ton modèle utilise un autre format
+    """Resize + normalisation pour modèle U-Net."""
+    H, W = 256, 512
+    img = cv2.resize(image_rgb, (W, H), interpolation=cv2.INTER_LINEAR)
     img = img.astype("float32") / 255.0
     return np.expand_dims(img, axis=0)
+
 
 
 # ------------------------------------------------------------

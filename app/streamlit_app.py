@@ -24,8 +24,9 @@ MASKS_DIR = Path(os.getenv("MASKS_DIR", PROJECT_ROOT / "data" / "processed" / "m
 # URL de l’API (modifiable via variable d’environnement)
 API_URL = os.getenv(
     "API_URL",
-    "https://p8oc-streamlit.herokuapp.com/predict",
+    "https://p8oc-api.herokuapp.com/predict",
 )
+
 
 # ------------------------------------------------------------
 # Helpers
