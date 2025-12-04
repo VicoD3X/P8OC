@@ -42,6 +42,7 @@ jobs:
           heroku_app_name: "p8oc-api"
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: "main"
+          usedocker: true
 
   deploy-streamlit:
     runs-on: ubuntu-latest
@@ -58,3 +59,4 @@ jobs:
           heroku_app_name: "p8oc-streamlit"
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: "main"
+          usedocker: true
