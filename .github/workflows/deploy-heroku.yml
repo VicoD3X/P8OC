@@ -35,6 +35,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+
       - name: Deploy p8oc-api to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
@@ -42,7 +46,6 @@ jobs:
           heroku_app_name: "p8oc-api"
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: "main"
-          usedocker: true
 
   deploy-streamlit:
     runs-on: ubuntu-latest
@@ -52,6 +55,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+
       - name: Deploy p8oc-streamlit to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
@@ -59,4 +66,3 @@ jobs:
           heroku_app_name: "p8oc-streamlit"
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: "main"
-          usedocker: true
