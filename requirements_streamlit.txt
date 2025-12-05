@@ -1,0 +1,14 @@
+# Application Streamlit + visualisation
+streamlit==1.51.0
+pandas==2.3.3
+matplotlib==3.10.7
+
+# Traitement d'images pour l'affichage + appel API
+albucore==0.0.24
+albumentations==2.0.8
+opencv-python-headless==4.11.0.86
+pillow==12.0.0
+numpy==2.1.0
+
+# Utilitaires réseau
+requests==2.32.5
