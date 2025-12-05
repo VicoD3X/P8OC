@@ -31,9 +31,11 @@ models/*
 # ============================================================
 # Données : ne pas versionner les datasets complets
 # ============================================================
-data/
+# Données : ne pas versionner les datasets complets
+data/*
 
-# --- On autorise un sous-ensemble pour la démo ---
+
+# --- On autorise le sous-dossier processed ---
 !data/processed/
 !data/processed/images/
 !data/processed/images/test/
@@ -41,6 +43,7 @@ data/
 !data/processed/masks/test/
 
 # On re-ignore tout le contenu par défaut...
+data/processed/*
 data/processed/images/*
 data/processed/images/test/*
 data/processed/masks/*

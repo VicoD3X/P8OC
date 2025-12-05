@@ -17,14 +17,23 @@ from src.utils.utils_visual import colorize_mask
 # ------------------------------------------------------------
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-# Répertoires des images et masques (surchageables via variables d’environnement)
-IMAGES_DIR = Path(os.getenv("IMAGES_DIR", PROJECT_ROOT / "data" / "processed" / "images"))
-MASKS_DIR = Path(os.getenv("MASKS_DIR", PROJECT_ROOT / "data" / "processed" / "masks"))
+IMAGES_DIR = Path(
+    os.getenv(
+        "IMAGES_DIR",
+        PROJECT_ROOT / "data" / "processed" / "images" / "test",
+    )
+)
+MASKS_DIR = Path(
+    os.getenv(
+        "MASKS_DIR",
+        PROJECT_ROOT / "data" / "processed" / "masks" / "test",
+    )
+)
 
 # URL de l’API (modifiable via variable d’environnement)
 API_URL = os.getenv(
     "API_URL",
-    "https://p8oc-api.herokuapp.com/predict",
+    "https://p8oc-api-6972f71da6e9.herokuapp.com/predict",
 )
 
 
