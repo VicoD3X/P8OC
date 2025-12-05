@@ -36,7 +36,6 @@ API_URL = os.getenv(
     "https://p8oc-api-6972f71da6e9.herokuapp.com/predict",
 )
 
-
 # ------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------
@@ -44,18 +43,15 @@ def np_to_pil(arr: np.ndarray) -> Image.Image:
     """Convertit un tableau numpy (H, W, 3) en image PIL."""
     return Image.fromarray(arr.astype(np.uint8))
 
-
 @st.cache_data
 def get_available_ids():
     """Retourne la liste des IDs disponibles (mise en cache)."""
     return list_available_ids(IMAGES_DIR)
 
-
 @st.cache_data
 def get_image_and_mask(image_id: str):
     """Charge l’image et le masque correspondant à un ID (mis en cache)."""
     return load_image_and_mask(image_id, IMAGES_DIR, MASKS_DIR)
-
 
 # ------------------------------------------------------------
 # Interface Streamlit
@@ -132,15 +128,15 @@ if st.button("Lancer la prédiction sur cet ID"):
 
     with col1:
         st.subheader("Image RGB")
-        st.image(np_to_pil(image_rgb), use_column_width=True)
+        st.image(np_to_pil(image_rgb), use_container_width=True)
 
     with col2:
         st.subheader("Masque réel")
-        st.image(np_to_pil(mask_true_color), use_column_width=True)
+        st.image(np_to_pil(mask_true_color), use_container_width=True)
 
     with col3:
         st.subheader("Masque prédit")
-        st.image(np_to_pil(mask_pred_color), use_column_width=True)
+        st.image(np_to_pil(mask_pred_color), use_container_width=True)
 
     st.success("Prédiction terminée.")
 else:
