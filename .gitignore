@@ -31,9 +31,7 @@ models/*
 # ============================================================
 # Données : ne pas versionner les datasets complets
 # ============================================================
-# Données : ne pas versionner les datasets complets
 data/*
-
 
 # --- On autorise le sous-dossier processed ---
 !data/processed/
@@ -58,9 +56,17 @@ data/processed/masks/test/*
 !data/processed/masks/test/berlin_000001_000019_gtFine_labelIds.png
 !data/processed/masks/test/berlin_000002_000019_gtFine_labelIds.png
 
+# ...et 3 paires image/masque de démo (Aachen)
+!data/processed/images/test/aachen_000001_000019_leftImg8bit.png
+!data/processed/images/test/aachen_000002_000019_leftImg8bit.png
+!data/processed/images/test/aachen_000003_000019_leftImg8bit.png
+
+!data/processed/masks/test/aachen_000001_000019_gtFine_labelIds.png
+!data/processed/masks/test/aachen_000002_000019_gtFine_labelIds.png
+!data/processed/masks/test/aachen_000003_000019_gtFine_labelIds.png
+
 # ============================================================
 # Jupyter / Notebooks
-# (les notebooks sont suivis, on ignore uniquement les méta-fichiers)
 # ============================================================
 .ipynb_checkpoints/
 
