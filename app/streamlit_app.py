@@ -11,6 +11,8 @@ from PIL import Image
 from src.utils.utils_data import list_available_ids, load_image_and_mask
 from src.utils.utils_api import send_image_to_api
 from src.utils.utils_visual import colorize_mask
+from src.dataloader import remap_mask
+
 
 # ------------------------------------------------------------
 # Configuration des chemins
@@ -113,13 +115,18 @@ if st.button("Lancer la prédiction sur cet ID"):
             st.error(f"Erreur lors de l’appel API : {e}")
             st.stop()
 
-    # Colorisation pour visualisation
+        # Colorisation pour visualisation
     try:
-        mask_true_color = colorize_mask(mask_true)
+        # Remapping 34 -> 8 classes pour le masque réel (labelIds bruts)
+        mask_true_remap = remap_mask(mask_true)
+        mask_true_color = colorize_mask(mask_true_remap)
+
+        # Le masque prédit est déjà en 0..7, pas besoin de remapping
         mask_pred_color = colorize_mask(mask_pred)
     except Exception as e:
         st.error(f"Erreur lors de la colorisation des masques : {e}")
         st.stop()
+
 
     # --------------------------------------------------------
     # Affichage des résultats
