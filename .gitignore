@@ -29,11 +29,31 @@ models/*
 !models/unet_vgg16.keras
 
 # ============================================================
-# Données : ne pas versionner les datasets
+# Données : ne pas versionner les datasets complets
 # ============================================================
 data/
-# Si besoin, tu peux garder un README dans data/ :
-# !data/README.md
+
+# --- On autorise un sous-ensemble pour la démo ---
+!data/processed/
+!data/processed/images/
+!data/processed/images/test/
+!data/processed/masks/
+!data/processed/masks/test/
+
+# On re-ignore tout le contenu par défaut...
+data/processed/images/*
+data/processed/images/test/*
+data/processed/masks/*
+data/processed/masks/test/*
+
+# ...sauf 3 paires image/masque de démo (Berlin)
+!data/processed/images/test/berlin_000000_000019_leftImg8bit.png
+!data/processed/images/test/berlin_000001_000019_leftImg8bit.png
+!data/processed/images/test/berlin_000002_000019_leftImg8bit.png
+
+!data/processed/masks/test/berlin_000000_000019_gtFine_labelIds.png
+!data/processed/masks/test/berlin_000001_000019_gtFine_labelIds.png
+!data/processed/masks/test/berlin_000002_000019_gtFine_labelIds.png
 
 # ============================================================
 # Jupyter / Notebooks
