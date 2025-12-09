@@ -28,6 +28,9 @@ jobs:
         run: pytest -q
 
   deploy-api:
+    # 🔴 Désactivé volontairement car le slug dépasse 500 Mo sur Heroku
+    # L'API reste sur la dernière version déployée avec succès
+    if: ${{ false }}
     runs-on: ubuntu-latest
     needs: tests
 
